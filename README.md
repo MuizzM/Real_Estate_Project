@@ -3,7 +3,7 @@
 >  Real estate Application
 ## Nickname
 XJM 
-## Description (100-word minimum)
+## Description 
 > Our real estate application will contain ability to rent houses and put houses on rent without a hassle.
 >The motivation for this application is making it easier for tenant to process a smooth transaction with landlord.
 >The goals for the app are to manage database correctly,process the transaction, and ability to create listings.
