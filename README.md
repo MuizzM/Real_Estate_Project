@@ -2,24 +2,16 @@
 ## Title
 >  Real estate Application
 ## Nickname
-> An acronym or short name for your project.
-> 3-character min.
-> 16-character max.
-> Letters, numbers, and dashes only.
-> No punctuation, special characters, or white space.
-> May not start or end with a dash. No consecutive dashes.
-xxx
+XJM 
 ## Description (100-word minimum)
-> A brief description of what your app will be like and why it's
-> interesting.
-> Possible questions to answer here:
-> What is the motivation for the app?
-> What are the goals of the app?
-> What problem will the app solve?
-> What burning need do people have that the app will fulfill?
-> What form will the app take to fulfill its goals?
-> What sorts of features will the app have?
-> What are the selling points of the app?
-> What makes this app interesting/cool?
-xxx
+> Our real estate application will contain ability to rent houses and put houses on rent without a hassle.
+>The motivation for this application is making it easier for tenant to process a smooth transaction with landlord.
+>The goals for the app are to manage database correctly,process the transaction, and ability to create listings.
+>This app will remove third party realty and make it easier for both tenat and landlord to have transaction
+>Often times landlord have issues finding tenant and once they post on our application they can reach mass audience.
+>We will crud method in our develpment process to fullfil the app goals.
+>The app feature will consit of ability to create house listing, price , and lease terms
+> One of the key selling points of app is to rent your house without even meeting the tenant and ability to make a smooth virtual transaction.
+> The intresting thing about our app is we will use zillow api to give tenat ability to view the neighborhood,walk score , schools, and crime before making a decision.
+
 
