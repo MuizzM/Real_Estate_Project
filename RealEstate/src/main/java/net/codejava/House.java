@@ -13,6 +13,7 @@ public class House {
 	private String city;
 	private float price;
 	private int muizz;
+	private int xavier;
 
 	protected House() {
 	}
