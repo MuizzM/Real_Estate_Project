@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title>Real Estate</title>
+</head>
+<body>
+<div align="center">	
+	<div sec:authorize="isAuthenticated()">
+		Good Morning  <b><span sec:authentication="name">Username</span></b>
+		&nbsp;
+		<i><span sec:authentication="principal.authorities">Roles</span></i>
+	</div>
+		
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Logout" />
+	</form>
+	
+	<h1>XJM Real Estate Management</h1>
+	<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
+		<a href="new">Create New Property Listing</a>
+	</div>
+	
+	<br/><br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Property ID</th>
+				<th>LandLord Name</th>
+				<th>PropertyAddress</th>
+				<th>City</th>
+				<th>Rent</th>
+				
+				<th sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">Actions</th>				
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="product : ${listProducts}">
+				<td th:text="${product.id}">Property ID</td>
+				<td th:text="${product.name}">Landlord Name</td>
+				<td th:text="${product.address}">address</td>
+				<td th:text="${product.city}">city</td>
+				<td th:text="${product.price}">Price</td>
+				
+				<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
+					<a th:href="@{'/edit/' + ${product.id}}">Edit</a>			
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${product.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
