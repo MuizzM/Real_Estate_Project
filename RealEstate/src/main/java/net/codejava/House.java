@@ -14,6 +14,7 @@ public class House {
 	private float price;
 	private int muizz;
 	private int xavier;
+	private double jay;
 
 	protected House() {
 	}
