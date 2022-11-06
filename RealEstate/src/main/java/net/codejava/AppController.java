@@ -16,10 +16,13 @@ public class AppController {
 	@Autowired
 	private HouseService service;
 	
+	
+	
+	
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<House> listHouses = service.listAll();
-		model.addAttribute("listHouse", listHouses);
+		model.addAttribute("listHouses", listHouses);
 		
 		return "index";
 	}
@@ -41,7 +44,7 @@ public class AppController {
 	
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditHouseForm(@PathVariable(name = "id") Long id) {
-		ModelAndView mav = new ModelAndView("edit_property");
+		ModelAndView mav = new ModelAndView("edit_house");
 		
 		House house = service.get(id);
 		mav.addObject("house", house);

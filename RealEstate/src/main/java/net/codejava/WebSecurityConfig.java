@@ -41,10 +41,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/").hasAnyAuthority("USER","LANDLORD","ADMIN")
-			.antMatchers("/new").hasAnyAuthority("LANDLORD","ADMIN")
-			.antMatchers("/Edit Property Listing/**").hasAnyAuthority("ADMIN","LANDLORD")
-			.antMatchers("/Delete Propertyr/**").hasAuthority("ADMIN")
+			.antMatchers("/").hasAnyAuthority("USER", "ADMIN", "LANDLORD")
+			.antMatchers("/new").hasAnyAuthority("ADMIN", "LANDLORD")
+			.antMatchers("/edit/**").hasAnyAuthority("ADMIN", "LANDLORD")
+			.antMatchers("/delete/**").hasAuthority("ADMIN")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin().permitAll()
