@@ -9,9 +9,10 @@ import javax.persistence.Id;
 public class House {
 	private Long id;
 	private String name;
-	private String address;
 	private String city;
+	private String address;
 	private float price;
+
 	protected House() {
 	}
 
@@ -33,20 +34,20 @@ public class House {
 		this.name = name;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getCity() {
 		return city;
 	}
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public float getPrice() {
@@ -56,5 +57,6 @@ public class House {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+
 
 }

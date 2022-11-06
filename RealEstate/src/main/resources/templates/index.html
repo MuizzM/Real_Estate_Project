@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="ISO-8859-1">
-<title>Real Estate</title>
+<title>Real Estate App</title>
 </head>
 <body>
-<div align="center">	
-	<div sec:authorize="isAuthenticated()">
-		Good Afternoon  <b><span sec:authentication="name">Username</span></b>
-		&nbsp;
-		<i><span sec:authentication="principal.authorities">Roles</span></i>
-	</div>
-		
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Logout" />
-	</form>
-	
-	<h1>XJM Real Estate Management</h1>
-	<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
-		<a href="new">Create New Property Listing</a>
-	</div>
-	
-	<br/><br/>
-	<table border="1" cellpadding="10">
-		<thead>
-			<tr>
-				<th>Property ID</th>
-				<th>LandLord Name</th>
-				<th>PropertyAddress</th>
-				<th>City</th>
-				<th>Rent</th>
-				
-				<th sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">Actions</th>				
-				
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="house : ${listHouses}">
-				<td th:text="${house.id}">Property ID</td>
-				<td th:text="${house.name}">Landlord Name</td>
-				<td th:text="${house.address}">address</td>
-				<td th:text="${house.city}">city</td>
-				<td th:text="${house.price}">Price</td>
-				
-				<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
-					<a th:href="@{'/edit/' + ${house.id}}">Edit</a>			
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${house.id}}">Delete</a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+<div align="center">
+<div sec:authorize="isAuthenticated()">
+Good Morning:  <b><span sec:authentication="name">Username</span></b>
+&nbsp;
+<i><span sec:authentication="principal.authorities">Roles</span></i>
+</div>
+
+<form th:action="@{/logout}" method="post">
+<input type="submit" value="Logout" />
+</form>
+
+<h1>XJM Real Estate Management</h1>
+<p>We offer the best Rentals in town. Contact LandLord Today for quick service.</p>
+<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
+<a href="new">Create New Property Listing</a>
+</div>
+
+<br/><br/>
+<table border="15" cellpadding="50">
+<thead>
+<tr>
+<th>Property ID</th>
+<th>Land Lord Name</th>
+<th>Property Address</th>
+<th>City</th>
+<th>Rent</th>
+
+<th sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">Actions</th>
+
+</tr>
+</thead>
+<tbody>
+<tr th:each="house : ${listHouses}">
+<td th:text="${house.id}">Property ID</td>
+<td th:text="${house.name}">Land Lord Name</td>
+<td th:text="${house.city}">City</td>
+<td th:text="${house.address}">Property Address</td>
+<td th:text="${house.price}">Rent</td>
+
+<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
+<a th:href="@{'/edit/' + ${house.id}}">Edit Property</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${house.id}}">Delete Property</a>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </body>
 </html>
