@@ -37,17 +37,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="product : ${listProducts}">
-				<td th:text="${product.id}">Property ID</td>
-				<td th:text="${product.name}">Landlord Name</td>
-				<td th:text="${product.address}">address</td>
-				<td th:text="${product.city}">city</td>
-				<td th:text="${product.price}">Price</td>
+			<tr th:each="house : ${listHouses}">
+				<td th:text="${house.id}">Property ID</td>
+				<td th:text="${house.name}">Landlord Name</td>
+				<td th:text="${house.address}">address</td>
+				<td th:text="${house.city}">city</td>
+				<td th:text="${house.price}">Price</td>
 				
 				<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
-					<a th:href="@{'/edit/' + ${product.id}}">Edit</a>			
+					<a th:href="@{'/edit/' + ${house.id}}">Edit</a>			
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${product.id}}">Delete</a>
+					<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${house.id}}">Delete</a>
 				</td>
 			</tr>
 		</tbody>

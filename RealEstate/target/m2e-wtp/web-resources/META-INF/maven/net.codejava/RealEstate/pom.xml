@@ -13,7 +13,7 @@
 	<artifactId>RealEstate</artifactId>
 	<version>2.0</version>
 	<name>xjmrealestate</name>
-	<description>Spring Boot CRUD Web App Example</description>
+	<description>Spring Boot CRUD Web App</description>
 	<packaging>war</packaging>
 	
 	<properties>
