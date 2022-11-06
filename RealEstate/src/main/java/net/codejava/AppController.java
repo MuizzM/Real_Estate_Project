@@ -25,7 +25,7 @@ public class AppController {
 	}
 	
 	@RequestMapping("/new")
-	public String showNewProductForm(Model model) {
+	public String showNewHouseForm(Model model) {
 		House house = new House();
 		model.addAttribute("house", house);
 		
@@ -33,14 +33,14 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("house") House house) {
+	public String saveHouse(@ModelAttribute("house") House house) {
 		service.save(house);
 		
 		return "redirect:/";
 	}
 	
 	@RequestMapping("/edit/{id}")
-	public ModelAndView showEditProductForm(@PathVariable(name = "id") Long id) {
+	public ModelAndView showEditHouseForm(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("edit_property");
 		
 		House house = service.get(id);
@@ -50,7 +50,7 @@ public class AppController {
 	}	
 	
 	@RequestMapping("/delete/{id}")
-	public String deleteProduct(@PathVariable(name = "id") Long id) {
+	public String deleteHouse(@PathVariable(name = "id") Long id) {
 		service.delete(id);
 		
 		return "redirect:/";
