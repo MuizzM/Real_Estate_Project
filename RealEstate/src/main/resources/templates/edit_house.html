@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>Edit Property Listing</title>
+	<meta charset="ISO-8859-1">
+	<title>Edit Property Listing</title>
 </head>
+
 <body>
 	<div align="center">
 		<h1>Edit Property Listing</h1>
-		<br/>
+		<br />
 		<form action="#" th:action="@{/save}" th:object="${house}" method="post">
 			<table border="0" cellpadding="10">
 				<tr>
 					<td>Property ID:</td>
 					<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
-				</tr>			
+				</tr>
 				<tr>
 					<td>LandLord Name:</td>
 					<td><input type="text" th:field="*{name}" /></td>
 				</tr>
 				<tr>
-					<td>City:</td>
-					<td><input type="text" th:field="*{city}" /></td>
-				</tr>				
-				<tr>
 					<td>Address:</td>
 					<td><input type="text" th:field="*{address}" /></td>
-				</tr>				
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" th:field="*{city}" /></td>
+				</tr>
+				<tr>
+					<td>Sate:</td>
+					<td><input type="text" th:field="*{state}" /></td>
+				</tr>
+
+
+				<tr>
+					<td>Description:</td>
+					<td><input type="text" th:field="*{description}" /></td>
+				</tr>
 				<tr>
 					<td>Rent:</td>
 					<td><input type="text" th:field="*{price}" /></td>
-				</tr>				
+				</tr>
+
 				<tr>
 					<td colspan="2"><button type="submit">Save</button></td>
 				</tr>
@@ -37,4 +50,5 @@
 		</form>
 	</div>
 </body>
+
 </html>
