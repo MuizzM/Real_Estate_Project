@@ -31,6 +31,7 @@ public class House {
 		this.description = description;
 	}
 
+
 	protected House() {
 	}
 
