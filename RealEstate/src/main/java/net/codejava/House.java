@@ -12,6 +12,24 @@ public class House {
 	private String city;
 	private String address;
 	private float price;
+	private String description;
+	private String state;
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	protected House() {
 	}
@@ -57,6 +75,5 @@ public class House {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-
 
 }
