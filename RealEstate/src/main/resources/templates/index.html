@@ -12,7 +12,7 @@
 <body>
 	<div align="center">
 		<div sec:authorize="isAuthenticated()">
-			Good Morning: <b><span sec:authentication="name">Username</span></b>
+			Hello: <b><span sec:authentication="name">Username</span></b>
 			&nbsp;
 			<i><span sec:authentication="principal.authorities">Roles</span></i>
 		</div>
@@ -22,7 +22,7 @@
 		</form>
 
 		<h1>XJM Real Estate Management</h1>
-		<p>We offer the best Rentals in town. Contact LandLord Today for quick service.</p>
+		<p>We offer the best rentals in town.</p>
 		<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
 			<a href="new">Create New Property Listing</a>
 		</div>
@@ -32,7 +32,7 @@
 			<thead>
 				<tr>
 					<th>Property ID</th>
-					<th>Land Lord Name</th>
+					<th>LandLord Name</th>
 					<th>Property Address</th>
 					<th>City</th>
 					<th>State</th>
@@ -46,11 +46,11 @@
 			<tbody>
 				<tr th:each="house : ${listHouses}">
 					<td th:text="${house.id}">Property ID</td>
-					<td th:text="${house.name}">Land Lord Name</td>
+					<td th:text="${house.name}">LandLord Name</td>
 					<td th:text="${house.address}">Property Address</td>
 					<td th:text="${house.city}">City</td>
 					<td th:text="${house.state}">State</td>
-					<td th:text="${house.description}">description</td>
+					<td th:text="${house.description}">Description</td>
 					<td th:text="${house.price}">Rent</td>
 
 
