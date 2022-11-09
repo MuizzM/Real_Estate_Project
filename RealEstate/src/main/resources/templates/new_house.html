@@ -7,11 +7,11 @@
 </head>
 
 <body>
-<style>
-body {
-  background-color: lightblue;
-}
-</style>
+	<style>
+		body {
+			background-color: lightblue;
+		}
+	</style>
 	<div align="center">
 		<h1>Create New Property Listing</h1>
 		<br />
@@ -37,6 +37,10 @@ body {
 				<tr>
 					<td>Description:</td>
 					<td><input type="text" th:field="*{description}" /></td>
+				</tr>
+				<tr>
+					<td>Contact:</td>
+					<td><input type="text" th:field="*{contact}" /></td>
 				</tr>
 				<tr>
 					<td>Price:</td>

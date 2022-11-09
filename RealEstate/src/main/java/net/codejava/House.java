@@ -14,6 +14,15 @@ public class House {
 	private float price;
 	private String description;
 	private String state;
+	private String contact;
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
 
 	public String getState() {
 		return state;
@@ -30,7 +39,6 @@ public class House {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 	protected House() {
 	}
