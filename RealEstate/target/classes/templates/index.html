@@ -5,16 +5,24 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: lightblue;
+		}
 
+		h1 {
+			width: 300px;
+			border: 15px solid black;
+			padding: 50px;
+			margin: 20px;
+		}
+	</style>
 	<title>Real Estate App</title>
 </head>
 
 <body>
-<style>
-body {
-  background-color: lightblue;
-}
-</style>
+	<img src="https://th.bing.com/th/id/R.a6bb5974f57db355ad3782c089258460?rik=LjIehd6pUJQiTQ&riu=http%3a%2f%2fwww.xjm.co.za%2fwp-content%2fuploads%2f2018%2f03%2flogo.png&ehk=oeDGOpKs7EUR%2fvX68LmqW%2f21ncKRuJk0oePJT6mALXo%3d&risl=&pid=ImgRaw&r=0"
+		alt="xjm logo" style="float:left;">
 	<div align="center">
 		<div sec:authorize="isAuthenticated()">
 			Hello: <b><span sec:authentication="name">Username</span></b>
@@ -32,6 +40,10 @@ body {
 			<a href="new">Create New Property Listing</a>
 		</div>
 
+
+
+
+
 		<br /><br />
 		<table border="15" cellpadding="40">
 			<thead>
@@ -42,6 +54,7 @@ body {
 					<th>City</th>
 					<th>State</th>
 					<th>Description</th>
+					<th>Contact</th>
 					<th>Rent</th>
 
 					<th sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">Actions</th>
@@ -56,6 +69,7 @@ body {
 					<td th:text="${house.city}">City</td>
 					<td th:text="${house.state}">State</td>
 					<td th:text="${house.description}">Description</td>
+					<td th:text="${house.contact}">Contact</td>
 					<td th:text="${house.price}">Rent</td>
 
 
