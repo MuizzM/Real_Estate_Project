@@ -17,6 +17,8 @@
 			margin: 20px;
 		}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
 	<title>Real Estate App</title>
 </head>
 
@@ -42,7 +44,9 @@
 
 
 
-
+		<b>Search the table for adress, landlord or Type:
+			<input id="gfg" type="text" placeholder="Search here">
+		</b>
 
 		<br /><br />
 		<table border="15" cellpadding="40">
@@ -63,7 +67,7 @@
 
 				</tr>
 			</thead>
-			<tbody>
+			<tbody id="greeks">
 				<tr th:each="house : ${listHouses}">
 					<td th:text="${house.id}">Property ID</td>
 					<td th:text="${house.name}">LandLord Name</td>
@@ -74,7 +78,7 @@
 					<td th:text="${house.contact}">Contact</td>
 					<td th:text="${house.status}">Status</td>
 					<td th:text="${house.price}">Rent</td>
-					
+
 
 
 					<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
@@ -86,6 +90,18 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<script>
+			$(document).ready(function () {
+				$("#gfg").on("keyup", function () {
+					var value = $(this).val().toLowerCase();
+					$("#greeks tr").filter(function () {
+						$(this).toggle($(this).text()
+							.toLowerCase().indexOf(value) > -1)
+					});
+				});
+			});
+		</script>
 	</div>
 </body>
 
