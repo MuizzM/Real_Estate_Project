@@ -15,6 +15,7 @@ public class House {
 	private String description;
 	private String state;
 	private String contact;
+	private String status;
 
 	public String getContact() {
 		return contact;
@@ -26,6 +27,14 @@ public class House {
 
 	public String getState() {
 		return state;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void setState(String state) {
