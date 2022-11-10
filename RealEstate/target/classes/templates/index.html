@@ -55,6 +55,8 @@
 					<th>State</th>
 					<th>Description</th>
 					<th>Contact</th>
+					<th>Status</th>
+
 					<th>Rent</th>
 
 					<th sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">Actions</th>
@@ -70,7 +72,9 @@
 					<td th:text="${house.state}">State</td>
 					<td th:text="${house.description}">Description</td>
 					<td th:text="${house.contact}">Contact</td>
+					<td th:text="${house.status}">Status</td>
 					<td th:text="${house.price}">Rent</td>
+					
 
 
 					<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
