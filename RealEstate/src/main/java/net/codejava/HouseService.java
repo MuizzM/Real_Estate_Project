@@ -9,19 +9,19 @@ import org.springframework.stereotype.Service;
 public class HouseService {
 	@Autowired
 	private HouseRepository repo;
-	
-	public List<House> listAll() {		
+
+	public List<House> listAll() {
 		return repo.findAll();
 	}
-	
+
 	public void save(House house) {
 		repo.save(house);
 	}
-	
+
 	public House get(Long id) {
 		return repo.findById(id).get();
 	}
-	
+
 	public void delete(Long id) {
 		repo.deleteById(id);
 	}

@@ -44,9 +44,9 @@
 
 
 
-		<b>Search the table for adress, landlord or Type:
-			<input id="gfg" type="text" placeholder="Search here">
-		</b>
+		<h2>Search the table by Property Address, landLord Name,City,State,Rent,Status:
+			<input id="gfg" type="text" placeholder="Search For Your Next Rental">
+		</h2>
 
 		<br /><br />
 		<table border="15" cellpadding="40">
@@ -58,7 +58,7 @@
 					<th>City</th>
 					<th>State</th>
 					<th>Description</th>
-					<th>Contact</th>
+					<th><a href="mailto:sentini@uncg.edu">Contact</a></th>
 					<th>Status</th>
 
 					<th>Rent</th>
@@ -67,7 +67,7 @@
 
 				</tr>
 			</thead>
-			<tbody id="greeks">
+			<tbody id="house">
 				<tr th:each="house : ${listHouses}">
 					<td th:text="${house.id}">Property ID</td>
 					<td th:text="${house.name}">LandLord Name</td>
@@ -77,6 +77,12 @@
 					<td th:text="${house.description}">Description</td>
 					<td th:text="${house.contact}">Contact</td>
 					<td th:text="${house.status}">Status</td>
+
+					 <select name="filter_for" >
+                         <option value="Availible">Availible</option>
+                         <option value="Rented">Rented</option>
+                         
+                     </select>
 					<td th:text="${house.price}">Rent</td>
 
 
@@ -95,7 +101,7 @@
 			$(document).ready(function () {
 				$("#gfg").on("keyup", function () {
 					var value = $(this).val().toLowerCase();
-					$("#greeks tr").filter(function () {
+					$("#house tr").filter(function () {
 						$(this).toggle($(this).text()
 							.toLowerCase().indexOf(value) > -1)
 					});

@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class MyUserDetails implements UserDetails {
 
 	private User user;
-	
+
 	public MyUserDetails(User user) {
 		this.user = user;
 	}
@@ -21,11 +21,11 @@ public class MyUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<Role> roles = user.getRoles();
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		
+
 		for (Role role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
-		
+
 		return authorities;
 	}
 
