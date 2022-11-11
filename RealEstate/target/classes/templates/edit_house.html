@@ -49,8 +49,11 @@
 				</tr>
 				<tr>
 					<td>Status:</td>
-					<td><input type="text" th:field="*{status}" /></td>
-				</tr>
+ 	<td><select name="status" id="status">
+        <option value="Rented">Rented</option>
+        <option value="Available" selected>Available </option></td>
+    </select>					
+    </tr>
 				<tr>
 					<td>Rent:</td>
 					<td><input type="text" th:field="*{price}" /></td>
