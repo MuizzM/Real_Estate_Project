@@ -44,11 +44,11 @@
 				</tr>
 				<tr>
 					<td>Status:</td> 
-					<td><input type="text" name="status" value="Available" disabled></td>
+					<td><input type="text" th:field="*{status}" placeholder="Available" disabled ></td>
 				</tr>
 				<tr>
-					<td>Price:</td>
-					<td><input type="text" th:field="*{price}" /></td>
+					<td>Rent:</td>
+					<td><input type="number" min="300" max="1,000,000,000" value="300" th:field="*{price}"/></td>
 				</tr>
 
 				<tr>
