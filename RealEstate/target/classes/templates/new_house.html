@@ -44,11 +44,12 @@
 				</tr>
 				<tr>
 					<td>Status:</td> 
-					<td><input type="text" name="status" value="Available" disabled></td>
+					<td><select name="status" id="status">
+        <option value="Available" selected>Available</option></select></td>
 				</tr>
-				<tr>
-					<td>Price:</td>
-					<td><input type="text" th:field="*{price}" /></td>
+				
+					<td>Rent:</td>
+					<td><input type="number" min="300" max="1,000,000,000" value="300" th:field="*{price}"/></td>
 				</tr>
 
 				<tr>
