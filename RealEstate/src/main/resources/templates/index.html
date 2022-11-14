@@ -6,18 +6,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
-		body {
-			background-color: lightblue;
+		.dark-mode {
+			background-color: black;
+			color: white;
 		}
 
-		h1 {
-			width: 300px;
-			border: 15px solid black;
-			padding: 50px;
-			margin: 20px;
+		img {
+			vertical-align: middle;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
 		}
+
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color: black;
+				color: white;
+			}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+	<script> function myFunction() {
+			var element = document.body;
+			element.classList.toggle("dark-mode");
+		}
 	</script>
 	<title>Real Estate App</title>
 </head>
@@ -37,19 +49,22 @@
 		</form>
 
 		<h1>XJM Real Estate Management</h1>
-		<p>We offer the best rentals in town.</p>
+		<p><strong>WE DO IT ALL HERE!</strong></p>
 		<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
-			<a href="new">Create New Property Listing</a>
+			<a href="new"><button>Create New Property</button></a>
 		</div>
 
 
+		<button onclick="myFunction()">Toggle dark mode</button>
 
-		<b>Search the table for adress, landlord or Type:
+
+		<h2>Search by Address, City, State, or Price:
 			<input id="gfg" type="text" placeholder="Search here">
-		</b>
+
+		</h2>
 
 		<br /><br />
-		<table border="15" cellpadding="40">
+		<table class="table table-bordered" border="10" cellpadding="20">
 			<thead>
 				<tr>
 					<th>Property ID</th>
@@ -82,10 +97,11 @@
 
 
 					<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">
-						<a th:href="@{'/edit/' + ${house.id}}">Edit Property</a>
+						<a th:href="@{'/edit/' + ${house.id}}"><button>Edit</button></a>
 						&nbsp;&nbsp;&nbsp;&nbsp;
-						<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${house.id}}">Delete
-							Property</a>
+						<a sec:authorize="hasAuthority('ADMIN')" th:href="@{'/delete/' + ${house.id}}">
+							<button>Delete</button>
+						</a>
 					</td>
 				</tr>
 			</tbody>

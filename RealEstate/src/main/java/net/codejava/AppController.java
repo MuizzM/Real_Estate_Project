@@ -16,9 +16,6 @@ public class AppController {
 	@Autowired
 	private HouseService service;
 	
-	
-	
-	
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<House> listHouses = service.listAll();
