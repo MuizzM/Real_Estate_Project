@@ -57,9 +57,11 @@
 	</div>
 	<div>
 		<div class="app-form-group buttons">
-			<h2> <a href="index.html">CONTINUE TO HOMPAGE</a> </h2>
+			<div sec:authorize="hasAnyAuthority('USER', 'ADMIN', 'LANDLORD')">
+				<a href="/message"><button>BACK TO LISTING</button></a>
+			</div>
 		</div>
 	</div>
 </body>
-
+ 
 </html>

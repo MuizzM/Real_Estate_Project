@@ -249,7 +249,10 @@
 
 
 								<div class="app-form-group buttons">
-									<a href="contactSuccess.html">PRESS SEND</a>
+									<div sec:authorize="hasAnyAuthority('USER', 'ADMIN' )">
+										<a href="contact"><button>SUBMIT</button></a>
+									</div>
+
 								</div>
 							</div>
 						</div>
