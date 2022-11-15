@@ -26,15 +26,15 @@
 		}
 
 		#mybutton {
-			line-height: 15px;
-			width: 100px;
-			font-size: 8pt;
-			font-family: tahoma;
-			margin-top: 4px;
-			margin-right: 4px;
+			margin: 0;
 			position: absolute;
-			top: 0;
-			right: 0;
+			top: 5%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			height: 20px;
+			width: 50px;
+
 		}
 
 		table {
@@ -72,14 +72,21 @@
 			border-radius: 50%;
 		}
 
+		map {
+			position: relative;
+			top: -16px;
+			right: 706px;
+		}
+
 		@media (prefers-color-scheme: dark) {
 			body {
 				background-color: black;
 				color: gold;
 			}
-			}
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
 	</script>
 	<script> function myFunction() {
 			var element = document.body;
@@ -90,7 +97,11 @@
 </head>
 
 <body>
-	<div id="map" style="width:300px; height: 250px;"></div>
+	<img src="https://static.vecteezy.com/system/resources/previews/009/133/348/original/xjm-logo-xjm-letter-xjm-letter-logo-design-initials-xjm-logo-linked-with-circle-and-uppercase-monogram-logo-xjm-typography-for-technology-business-and-real-estate-brand-vector.jpg"
+		alt="xjm logo" style="float:right;">
+	<br>
+	<div id="map" style="width:300px; height: 250px;
+"></div>
 
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 
@@ -109,7 +120,7 @@
 			position: {lat: 35.970554, lng: -79.997498},
 			map: map, icon: flag, title: "Josh Savy Property"
 		};
-		
+
 		var position3 = {
 			position: {lat: 35.970554, lng: -79.997498},
 			map: map, icon: flag, title: "Suzy Lue Property"
@@ -128,8 +139,8 @@
 		marker1.addListener('click', marker_clicked);
 		marker2.addListener('click', marker_clicked);
 	</script>
-	<img src="https://static.vecteezy.com/system/resources/previews/009/133/348/original/xjm-logo-xjm-letter-xjm-letter-logo-design-initials-xjm-logo-linked-with-circle-and-uppercase-monogram-logo-xjm-typography-for-technology-business-and-real-estate-brand-vector.jpg"
-		alt="xjm logo" style="float:left;">
+
+
 	<div align="center">
 		<div sec:authorize="isAuthenticated()">
 			Hello: <b><span sec:authentication="name">Username</span></b>
@@ -146,6 +157,9 @@
 		<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
 			<a href="new"><button>Create New Property</button></a>
 		</div>
+
+
+
 
 
 		<button id="mybutton" onclick="myFunction()">Dark Mode</button>
@@ -166,7 +180,7 @@
 					<th>City</th>
 					<th>State</th>
 					<th>Description</th>
-					<th>Contact</th>
+					<th sec:authorize="hasAnyAuthority('ADMIN', 'USER')">Contact</th>
 					<th>Status</th>
 
 					<th>Rent</th>
@@ -183,10 +197,11 @@
 					<td th:text="${house.city}">City</td>
 					<td th:text="${house.state}">State</td>
 					<td th:text="${house.description}">Description</td>
-					<td th:text="${house.contact}">Contact</td>
+					<td sec:authorize="hasAnyAuthority('USER', 'ADMIN' )">
+						<a href="newform"><button>Contact Landlord</button></a>
+					</td>
 					<td th:text="${house.status}">Status</td>
 					<td th:text="${house.price}">Rent</td>
-
 
 
 					<td sec:authorize="hasAnyAuthority('ADMIN', 'LANDLORD')">

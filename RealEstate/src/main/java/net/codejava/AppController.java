@@ -15,44 +15,68 @@ import org.springframework.web.servlet.ModelAndView;
 public class AppController {
 	@Autowired
 	private HouseService service;
-	
+
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
 		List<House> listHouses = service.listAll();
 		model.addAttribute("listHouses", listHouses);
-		
+
 		return "index";
 	}
-	
+
 	@RequestMapping("/new")
 	public String showNewHouseForm(Model model) {
 		House house = new House();
 		model.addAttribute("house", house);
-		
+
 		return "new_house";
 	}
-	
+
+	@RequestMapping("/newform")
+	public String showContactForm(Model model) {
+		Contact contact = new Contact();
+		model.addAttribute("contact", contact);
+
+		return "contact";
+	}
+
+	@RequestMapping("/contact")
+	public String contactSuccessForm(Model model) {
+		Contact contact = new Contact();
+		model.addAttribute("contact", contact);
+
+		return "contactSuccess";
+	}
+
+	@RequestMapping("/message")
+	public String message(Model model) {
+		Contact contact = new Contact();
+		model.addAttribute("contact", contact);
+
+		return "index";
+	}
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveHouse(@ModelAttribute("house") House house) {
 		service.save(house);
-		
+
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditHouseForm(@PathVariable(name = "id") Long id) {
 		ModelAndView mav = new ModelAndView("edit_house");
-		
+
 		House house = service.get(id);
 		mav.addObject("house", house);
-		
+
 		return mav;
-	}	
-	
+	}
+
 	@RequestMapping("/delete/{id}")
 	public String deleteHouse(@PathVariable(name = "id") Long id) {
 		service.delete(id);
-		
+
 		return "redirect:/";
 	}
 }
