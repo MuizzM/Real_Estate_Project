@@ -10,5 +10,4 @@ public class HouseManagerApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(HouseManagerApplication.class, args);
 	}
-
 }

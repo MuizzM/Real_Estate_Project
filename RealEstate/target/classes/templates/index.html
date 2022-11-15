@@ -6,9 +6,63 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
+		body {
+			background-color: gold;
+		}
+
+		table.table-bordered {
+			border: 1px solid navy;
+			margin-top: 20px;
+			overflow-x: auto;
+			overflow-y: auto;
+		}
+
+		table.table-bordered>thead>tr>th {
+			border: 3px solid navy;
+		}
+
+		table.table-bordered>tbody>tr>td {
+			border: 3px solid navy;
+		}
+
+		#mybutton {
+			line-height: 15px;
+			width: 100px;
+			font-size: 8pt;
+			font-family: tahoma;
+			margin-top: 4px;
+			margin-right: 4px;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		th {
+			height: 70px;
+		}
+
+		tr:hover {
+			background-color: navy;
+		}
+
+		th {
+			background-color: navy;
+			color: gold;
+		}
+
+		th,
+		td {
+			padding: 15px;
+			text-align: left;
+		}
+
 		.dark-mode {
 			background-color: black;
-			color: white;
+			color: gold;
 		}
 
 		img {
@@ -21,7 +75,7 @@
 		@media (prefers-color-scheme: dark) {
 			body {
 				background-color: black;
-				color: white;
+				color: gold;
 			}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
@@ -35,7 +89,7 @@
 </head>
 
 <body>
-	<img src="https://th.bing.com/th/id/R.a6bb5974f57db355ad3782c089258460?rik=LjIehd6pUJQiTQ&riu=http%3a%2f%2fwww.xjm.co.za%2fwp-content%2fuploads%2f2018%2f03%2flogo.png&ehk=oeDGOpKs7EUR%2fvX68LmqW%2f21ncKRuJk0oePJT6mALXo%3d&risl=&pid=ImgRaw&r=0"
+	<img src="https://static.vecteezy.com/system/resources/previews/009/133/348/original/xjm-logo-xjm-letter-xjm-letter-logo-design-initials-xjm-logo-linked-with-circle-and-uppercase-monogram-logo-xjm-typography-for-technology-business-and-real-estate-brand-vector.jpg"
 		alt="xjm logo" style="float:left;">
 	<div align="center">
 		<div sec:authorize="isAuthenticated()">
@@ -48,17 +102,17 @@
 			<input type="submit" value="Logout" />
 		</form>
 
-		<h1>XJM Real Estate Management</h1>
-		<p><strong>WE DO IT ALL HERE!</strong></p>
+		<h1 style="color: navy">XJM Real Estate Management</h1>
+		<p style="color: navy"><strong>WE DO IT ALL HERE!</strong></p>
 		<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
 			<a href="new"><button>Create New Property</button></a>
 		</div>
 
 
-		<button onclick="myFunction()">Toggle dark mode</button>
+		<button id="mybutton" onclick="myFunction()">Dark Mode</button>
 
 
-		<h2>Search by Address, City, State, or Price:
+		<h2 style="color: navy">Search by Address, City, State, or Price:
 			<input id="gfg" type="text" placeholder="Search here">
 
 		</h2>

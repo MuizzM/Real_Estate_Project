@@ -9,46 +9,46 @@
 <body>
 	<style>
 		body {
-			background-color: lightblue;
+			background-color: navy;
 		}
 	</style>
 	<div align="center">
-		<h1>Create New Property Listing</h1>
+		<h1 style="color: gold">Create New Property Listing</h1>
 		<br />
 		<form action="#" th:action="@{/save}" th:object="${house}" method="post">
 			<table border="10" cellpadding="10">
 				<tr>
-					<td>Landlord Name:</td>
+					<td style="color: gold">Landlord Name:</td>
 					<td><input type="text" th:field="*{name}" /></td>
 				</tr>
 
 				<tr>
-					<td>Property Address:</td>
+					<td style="color: gold">Property Address:</td>
 					<td><input type="text" th:field="*{address}" /></td>
 				</tr>
 				<tr>
-					<td>City:</td>
+					<td style="color: gold">City:</td>
 					<td><input type="text" th:field="*{city}" /></td>
 				</tr>
 				<tr>
-					<td>State:</td>
+					<td style="color: gold">State:</td>
 					<td><input type="text" th:field="*{state}" /></td>
 				</tr>
 				<tr>
-					<td>Description:</td>
+					<td style="color: gold">Description:</td>
 					<td><input type="text" th:field="*{description}" /></td>
 				</tr>
 				<tr>
-					<td>Contact:</td>
+					<td style="color: gold">Contact:</td>
 					<td><input type="text" th:field="*{contact}" /></td>
 				</tr>
 				<tr>
-					<td>Status:</td> 
+					<td style="color: gold">Status:</td> 
 					<td><select name="status" id="status">
         <option value="Available" selected>Available</option></select></td>
 				</tr>
 				
-					<td>Rent:</td>
+					<td style="color: gold">Rent:</td>
 					<td><input type="number" min="300" max="1,000,000,000" value="300" th:field="*{price}"/></td>
 				</tr>
 

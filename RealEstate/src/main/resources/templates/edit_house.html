@@ -9,53 +9,69 @@
 <body>
 	<style>
 		body {
-			background-color: lightblue;
+			background-color: navy;
+		}
+
+		table.table-bordered {
+			border: 1px solid gold;
+			margin-top: 20px;
+			overflow-x: auto;
+			overflow-y: auto;
+		}
+
+		table.table-bordered>thead>tr>th {
+			border: 3px solid gold;
+		}
+
+		table.table-bordered>tbody>tr>td {
+			border: 3px solid gold;
 		}
 	</style>
 	<div align="center">
-		<h1>Edit Property Listing</h1>
+		<h1 style="color: gold">Edit Property Listing</h1>
 		<br />
 		<form action="#" th:action="@{/save}" th:object="${house}" method="post">
-			<table border="0" cellpadding="10">
+			<table style="color: gold" border="0" cellpadding="10">
 				<tr>
-					<td>Property ID:</td>
+					<td align="center">Property ID:</td>
 					<td><input type="text" th:field="*{id}" readonly="readonly" /></td>
 				</tr>
 				<tr>
-					<td>LandLord Name:</td>
+					<td align="center">LandLord Name:</td>
 					<td><input type="text" th:field="*{name}" /></td>
 				</tr>
 				<tr>
-					<td>Address:</td>
+					<td align="center">Address:</td>
 					<td><input type="text" th:field="*{address}" /></td>
 				</tr>
 				<tr>
-					<td>City:</td>
+					<td align="center">City:</td>
 					<td><input type="text" th:field="*{city}" /></td>
 				</tr>
 				<tr>
-					<td>State:</td>
+					<td align="center">State:</td>
 					<td><input type="text" th:field="*{state}" /></td>
 				</tr>
 
 
 				<tr>
-					<td>Description:</td>
+					<td align="center">Description:</td>
 					<td><input type="text" th:field="*{description}" /></td>
 				</tr>
 				<tr>
-					<td>Contact:</td>
+					<td align="center">Contact:</td>
 					<td><input type="text" th:field="*{contact}" /></td>
 				</tr>
 				<tr>
-					<td>Status:</td>
- 	<td><select name="status" id="status">
-        <option value="Rented">Rented</option>
-        <option value="Available" selected>Available</option></select></td>					
-    </tr>
+					<td align="center">Status:</td>
+					<td><select name="status" id="status">
+							<option value="Rented">Rented</option>
+							<option value="Available" selected>Available</option>
+						</select></td>
+				</tr>
 				<tr>
-					<td>Rent:</td>
-					<td><input type="number" min="300" max="1,000,000,000" value="300" th:field="*{price}"/></td>
+					<td align="center">Rent:</td>
+					<td><input type="number" min="300" max="1,000,000,000" value="300" th:field="*{price}" /></td>
 				</tr>
 
 
