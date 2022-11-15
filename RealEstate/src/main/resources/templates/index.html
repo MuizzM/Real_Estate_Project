@@ -107,6 +107,9 @@
 		<div sec:authorize="hasAnyAuthority('LANDLORD', 'ADMIN')">
 			<a href="new"><button>Create New Property</button></a>
 		</div>
+		<div sec:authorize="hasAnyAuthority('USER', 'ADMIN')">
+			<a href="contact.html"><button>Contact Landlord</button></a>
+		</div>
 
 
 		<button id="mybutton" onclick="myFunction()">Dark Mode</button>
@@ -174,5 +177,3 @@
 		</script>
 	</div>
 </body>
-
-</html>
