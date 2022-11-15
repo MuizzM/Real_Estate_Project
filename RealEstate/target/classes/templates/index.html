@@ -77,6 +77,7 @@
 				background-color: black;
 				color: gold;
 			}
+			}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 	</script>
@@ -89,7 +90,7 @@
 </head>
 
 <body>
-	<div id="map" style="width:600px; height: 400px;"></div>
+	<div id="map" style="width:300px; height: 250px;"></div>
 
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 
@@ -100,17 +101,23 @@
 		var flag = 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png';
 
 		var position1 = {
-			position: {lat: 47.490, lng: -117.585},
-			map: map, icon: flag, title: "EWU Cheney Campus"
+			position: {lat: 32.360944, lng: -97.390716},
+			map: map, icon: flag, title: "John Doe Property"
 		};
 
 		var position2 = {
-			position: {lat: 47.661, lng: -117.404},
-			map: map, icon: flag, title: "EWU RiverPoint Campus"
+			position: {lat: 35.970554, lng: -79.997498},
+			map: map, icon: flag, title: "Josh Savy Property"
+		};
+		
+		var position3 = {
+			position: {lat: 35.970554, lng: -79.997498},
+			map: map, icon: flag, title: "Suzy Lue Property"
 		};
 
 		var marker1 = new google.maps.Marker(position1);
 		var marker2 = new google.maps.Marker(position2);
+		var marker2 = new google.maps.Marker(position3);
 
 		function marker_clicked() {
 			info.setContent(this.getTitle());
